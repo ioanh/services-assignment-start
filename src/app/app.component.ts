@@ -7,13 +7,6 @@ import { UsersData } from './usersData.serivce';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  activeUsers: string[] = [];
-  inactiveUsers: string[] = [];
-  constructor(private userData: UsersData){}
-  
-  ngOnInit(){
-    this.activeUsers = this.userData.activeUsers;
-    this.inactiveUsers = this.userData.inactiveUsers;
-  }
+
   
 }
