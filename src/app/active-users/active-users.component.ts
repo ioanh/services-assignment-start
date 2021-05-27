@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { UsersData } from '../usersData.serivce';
 
 @Component({
@@ -6,13 +6,16 @@ import { UsersData } from '../usersData.serivce';
   templateUrl: './active-users.component.html',
   styleUrls: ['./active-users.component.css']
 })
-export class ActiveUsersComponent {
+export class ActiveUsersComponent implements OnInit{
 
   constructor(private userData: UsersData){}
 
-  users = this.userData.inactiveUsers;
+  users: string[];
 
   onSetToInactive(id: number) {
-    this.userData.onSetToActive(id);
+    this.userData.onSetToInactive(id);
+  }
+  ngOnInit(){
+    this.users = this.userData.activeUsers
   }
 }
