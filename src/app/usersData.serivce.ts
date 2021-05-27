@@ -11,11 +11,14 @@ export class UsersData{
       this.inactiveUsers.push(this.activeUsers[id]);
       this.activeUsers.splice(id, 1);
       this.loggingService.statusChanged('Inactive', id);
+      this.loggingService.onSetActiveToInactive();
     }
   
     onSetToActive(id: number) {
       this.activeUsers.push(this.inactiveUsers[id]);
       this.inactiveUsers.splice(id, 1);
       this.loggingService.statusChanged('Active', id);
+      this.loggingService.onSetInactiveToActive();
+
     }
 }
